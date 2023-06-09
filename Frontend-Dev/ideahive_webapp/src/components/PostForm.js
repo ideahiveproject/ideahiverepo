@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
+import { PostContext } from "../context/PostState";
+import {v4 as uuid} from 'uuid';
+import { useNavigate } from "react-router-dom";
 
 const PostForm = () => {
-  const [inputArr, setInputArr] = useState([]);
+  const { addPost} = useContext(PostContext);  
   const [post, setPost] = useState({
     title: "",
     description: "",
-    delivarable: "",
     category: "",
-    file: null,
+    // file: null,
   });
+
+  const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setPost((prev) => {
-      return { ...prev, [name]: value };
-    });
+    setPost({...post, [name]: value});
   };
 
-  let { title, description, delivarable, category, file } = post;
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(inputArr);
-    setInputArr([...inputArr, title, description, delivarable, category, file]);
+  const handleSubmit = () => {
+    const newPost = {
+      userId: 4,
+      id: uuid,
+      title: post.title,
+      description: post.description,
+      category: post.category
+    }
+    addPost(newPost)
+    navigate('/post');
   };
+
 
   return (
     <div>
@@ -32,8 +41,6 @@ const PostForm = () => {
         <input type="text" name="title" onChange={handleChange} />
         <h3>Description</h3>
         <textarea name="description" onChange={handleChange} />
-        <h3>Delivarables</h3>
-        <input type="text" name="delivarable" onChange={handleChange} />
         <h3>Category</h3>
         <select name="category" onChange={handleChange}>
           <option></option>
@@ -42,23 +49,10 @@ const PostForm = () => {
           <option>category 3</option>
           <option>category 4</option>
         </select>
-        <h3>Image</h3>
-        <input type="file" name="file" onChange={handleChange} />
-        <button type="submit">Submit</button>
+        {/*<h3>Image</h3>
+  <input type="file" name="file" onChange={handleChange} />*/}
+<button type="submit">Submit</button>
       </form>
-      <div>
-        {inputArr.map((info, index) => {
-          return (
-            <div>
-              <p>{info.title}</p>
-              <p>{info.description}</p>
-              <p>{info.category}</p>
-              <p>{info.delivarable}</p>
-              <img src={info.file} alt={info.title} />
-            </div>
-          );
-        })}
-      </div>
     </div>
   );
 };

@@ -1,21 +1,21 @@
-import React from 'react'
+import { Link } from "react-router-dom";
+import { Box, Stack} from '@mui/material';
+import posts from './data.json'
 
-const Post = ({posts}) => {
+const Post = () => {
+  const users = [...new Set(posts.map(q => q.userId))];
+
   return (
-    <div>
-    {
-        posts.map((post) => {
-            <div key={post.id}>
-            <div>{post.title}</div>
-            <div>{post.category}</div>
-            <div>{post.description}</div>
-            <img src={post.image} alt={post.title}/>
-            <div>{post.deliverable}</div>
-            </div>
-        })
+    <Box sx={{ mt: { lg: "70px" } }} m="8px" p="20px">
+    {users.map((user) => ( 
+      <Stack direction="row" gap="20px" fontSize="18px" alignItems="flex-end">
+        {/*<img src={user.img} alt={user.title} />*/}
+        <Link to={'/user/'+ user} key={user.userId}>User: {user}</Link>
+      </Stack>
+      ))
     }
-    </div>
-  )
-}
+    </Box>
+  );
+};
 
-export default Post
+export default Post;
