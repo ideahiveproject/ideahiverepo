@@ -3,7 +3,6 @@ import "./App.css";
 import PostForm from "./components/PostForm";
 import Post from "./components/Post";
 import UserPage from "./components/UserPage";
-// import posts from "./components/data.json";
 import { PostProvider } from "./context/PostState";
 import Edit from "./components/Edit";
 import Delete from "./components/Delete";
