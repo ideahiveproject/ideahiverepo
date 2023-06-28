@@ -1,0 +1,180 @@
+body{
+  background-color: rgb(244, 244, 244);
+}
+.templateContainer{
+  margin: 5% 0;
+  /* display: flex; */
+  /* background-color: black; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  align-items: center;
+  justify-content: center;
+  /* margin: 0 auto; */
+  /* height: 30px; */
+
+
+
+}
+.template{
+  /* background-color: #d4dae2; */
+  background-color: rgb(244, 244, 244);
+
+  /* height: 400px;
+  width: 400px; */
+}
+.profileButton{
+  margin-right: 330px;
+}
+.imagetop img {
+  /* width:fit-content; */
+  height: 50px;
+  width: 100%;
+  /* margin-bottom: 100px; */
+}
+.detailsContainer{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 100px;
+}
+.categorybutton{
+  background-color: #a8c6ef;
+}
+
+
+
+
+
+.templateContainer > .searchInput_Container{
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.templateContainer > .searchInput_Container input{
+  width: 50%;
+  padding: 10px;
+  outline: none;
+}
+.templateContainer .template_Container{
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.templateContainer .template_Container .template{
+  background-color: rgb(224, 224, 224);
+  margin: 30px;
+  padding: 0px 20px;
+}
+.templateContainer .template_Container .template img{
+  height: 250px;
+}
+
+
+
+
+
+ .recentlyClicked {
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  margin: 20px 0;
+} 
+
+.template {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+.template {
+  position: relative;
+} 
+
+ .template img {
+  display: block;
+  width: 100%;
+  height: auto;
+} 
+
+.template h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.template p.Category {
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+} 
+
+/* .template button {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  background-color: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+} */
+.buttonclear{
+  /* position: absolute; */
+  bottom: 0;
+  left: 50px;
+
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  background-color: #63676b;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.template button:hover {
+  background-color: #0055cc;
+}
+
+
+.profileButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profileButton img {
+  /* object-fit: cover; */
+  object-fit:contain;
+  height: 100%;
+  width: 100%;
+}
